@@ -1,12 +1,18 @@
 package me.brody.designpatterns.singleton;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
 
-        Setting instance = Setting.getInstance();
-        Setting instance1 = Setting.getInstance();
+        Setting setting = Setting.getInstance();
 
-        System.out.println(instance==instance1);
+        Constructor<Setting> declaredConstructor = Setting.class.getDeclaredConstructor();
+        declaredConstructor.setAccessible(true);
+        Setting setting1 = declaredConstructor.newInstance();
+
+        System.out.println(setting==setting1);
     }
 
 }
