@@ -1,6 +1,8 @@
 package me.brody.designpatterns.singleton;
 
-public class Setting {
+import java.io.Serializable;
+
+public class Setting implements Serializable {
 
     private Setting() {
     }
