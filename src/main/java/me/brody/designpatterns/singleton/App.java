@@ -1,24 +1,18 @@
 package me.brody.designpatterns.singleton;
 
-import java.io.*;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 public class App {
-    public static void main(String[] args) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException, IOException, ClassNotFoundException {
+    public static void main(String[] args) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
 
-        Setting setting = Setting.getInstance();
-        Setting setting1 = null;
+        Setting setting = Setting.INSTANCE;
 
-        try (ObjectOutput out = new ObjectOutputStream(new FileOutputStream("setting.obj"))) {
-            out.writeObject(setting);
-        }
+        Constructor<Setting> declaredConstructor = Setting.class.getDeclaredConstructor();
+        declaredConstructor.setAccessible(true);
+        Setting setting1 = declaredConstructor.newInstance();
 
-        try (ObjectInput in = new ObjectInputStream(new FileInputStream("setting.obj"))) {
-            setting1 = (Setting) in.readObject();
-        }
-
-        System.out.println(setting == setting1);
+        System.out.println(setting==setting1);
     }
 
 }
