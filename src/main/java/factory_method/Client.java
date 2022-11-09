@@ -1,7 +1,11 @@
 package factory_method;
 
 public class Client {
+
     public static void main(String[] args) {
-        Car car = new BlueCarFactory().orderCar("blue","hello");
+        Client client = new Client();
+
+        Ship whiteship = ShipFactory.orderShip("Whiteship", "hello@mail.com");
+        Ship blackship = ShipFactory.orderShip("Blackship","hello@mail.com");
     }
 }
