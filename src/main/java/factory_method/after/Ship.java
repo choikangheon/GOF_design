@@ -1,4 +1,4 @@
-package factory_method;
+package factory_method.after;
 
 import lombok.Getter;
 import lombok.Setter;

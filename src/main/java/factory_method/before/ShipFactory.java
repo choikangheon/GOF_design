@@ -1,4 +1,4 @@
-package factory_method;
+package factory_method.before;
 
 public class ShipFactory {
     public static Ship orderShip(String name, String email) {
