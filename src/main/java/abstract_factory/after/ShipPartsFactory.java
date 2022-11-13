@@ -1,6 +1,7 @@
-package me.brody.designpatterns.abstract_factory;
+package abstract_factory.after;
 
 public interface ShipPartsFactory {
+
     Anchor createAnchor();
     Wheel createWheel();
 }

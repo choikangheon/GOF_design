@@ -1,7 +1,10 @@
 package factory_method.after;
 
+import abstract_factory.after.Anchor;
+import abstract_factory.after.Wheel;
 import lombok.Getter;
 import lombok.Setter;
+
 
 
 @Getter
@@ -11,6 +14,8 @@ public class Ship {
     private String email;
     private String logo;
     private String color;
+    private Wheel wheel;
+    private Anchor anchor;
 
 
     public void setLogo(String logo) {
