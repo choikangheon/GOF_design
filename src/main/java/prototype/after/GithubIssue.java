@@ -1,6 +1,8 @@
-package prototype.before;
+package prototype.after;
 
-public class GithubIssue {
+import java.util.Objects;
+
+public class GithubIssue implements Cloneable{
     private int id;
     private String title;
     private GithubRepository repository;
@@ -11,6 +13,19 @@ public class GithubIssue {
 
     public int getId() {
         return id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        GithubIssue that = (GithubIssue) o;
+        return id == that.id && Objects.equals(title, that.title) && Objects.equals(repository, that.repository);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, repository);
     }
 
     public void setId(int id) {
@@ -26,6 +41,11 @@ public class GithubIssue {
     }
     public GithubRepository getRepository() {
         return repository;
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 
     public String getUrl() {
