@@ -1,4 +1,4 @@
-package me.brody.designpatterns.singleton;
+package singleton;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
